@@ -20,11 +20,12 @@ Board::~Board() {
 
 }
 
-void Board::draw() {
+void Board::draw(Tetromino* piece) {
+    bool isPiece = false;
     COORD cursorPosition;
-    cursorPosition.X = 0;
+    cursorPosition.X = 0; // stawi kursor na zerowe koordynaty. dokladnie lewy gorny rog 
     cursorPosition.Y = 0;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition); // trik, zeby konsola nie mrogala. pozwala na odrysowanie nowych symboli w konsole
     for (int i = 0; i < height; i++) {
         std::cout << "#";
 

@@ -1,4 +1,5 @@
 #pragma once //* zeby plik nie laczyl sie dwa razy
+#include "Tetromino.h"
 
 class Board {
     private:
@@ -7,6 +8,6 @@ class Board {
     public:
         Board(int w, int h); //* konstuktor
         ~Board(); //*destruktor
-        void draw(); //*wyswietlenie jest metoda
+        void draw(Tetromino* piece); //*wyswietlenie jest metoda
 
 };
