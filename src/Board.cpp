@@ -1,7 +1,7 @@
-#include "Board.h"
+#include "include/Entities/Board.h"
 #include <iostream> 
 #include <windows.h>
-#include "Tetromino.h"
+#include "include/Entities/Tetromino.h"
 
 Board::Board(int w, int h) : width(w), height(h) {
     grid = new int*[height];

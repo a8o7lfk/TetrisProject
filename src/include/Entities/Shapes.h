@@ -12,3 +12,9 @@ class Ishape : public Tetromino {
         Ishape();
         void rotate() override;
 };
+
+class Lshape : public Tetromino {
+    public: 
+        Lshape();
+        void rotate() override;
+};

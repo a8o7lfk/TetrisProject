@@ -8,7 +8,7 @@
 
 
 int main() {
-    srand(time(NULL)); // inicjalizacja gemeratpra
+    srand(time(NULL)); // inicjalizacja generatora
     char button;
     system("cls");
     Board board(10, 20); // stworzenie obiektu, board 10x20 
@@ -32,13 +32,15 @@ int main() {
             currentPiece->rotate();
             if (board.isCollision(currentPiece, 0, 0)) {
                 currentPiece->rotate();
+                currentPiece->rotate();
+                currentPiece->rotate();
             }
         }
 
         if (!(board.isCollision(currentPiece, 0, 1))) {
             currentPiece->move(0, 1);
         } else {
-            int r = rand() % 2;
+            int r = std::rand() % 3;
             board.lockPiece(currentPiece);
             board.clearLines();
             delete currentPiece;
@@ -47,6 +49,9 @@ int main() {
             }
             else if (r == 1) {
                 currentPiece = new Ishape();
+            }
+            else if (r == 2) {
+                currentPiece = new Lshape();
             }
             
         }

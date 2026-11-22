@@ -1,6 +1,5 @@
-#include "Tetromino.h"
-#include "Board.h"
-#include <iostream>
+#include "include/Entities/Tetromino.h"
+
 
 void Tetromino::move(int dx, int dy) {
     x += dx;
