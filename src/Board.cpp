@@ -21,6 +21,41 @@ Board::~Board() {
     delete[] grid;
 
 }
+void Board::clearLines() {
+    for (int i = height - 1; i >= 0; i--) {
+        bool isFull = true;
+        for (int j = 0; j < width; j++) {
+            if (grid[i][j] == 0) {
+                isFull = false;
+                break;
+            }
+        }
+        if (isFull) {
+            for (int k = i; k > 0; k--) {
+                for (int j = 0; j < width; j++) {
+                    grid[k][j] = grid[k-1][j];
+                    
+                }
+            }
+            i++;
+            for (int j = 0; j < width; j++) {
+                grid[0][j] = 0;
+            }
+        }
+    }
+    
+}
+void Board::lockPiece(Tetromino* piece) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (piece->getMatrix(i, j) == 1) {
+                int X = piece->getX() + j;
+                int Y = piece->getY() + i;
+                grid[Y][X] = 1;
+            }
+        }
+    }
+}
 bool Board::isCollision(Tetromino* piece, int dx, int dy) {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
@@ -34,9 +69,7 @@ bool Board::isCollision(Tetromino* piece, int dx, int dy) {
                     return true; 
                 if (grid[future_y][future_x] != 0) 
                     return true;
-                
             }
-
         }
     }
     return false;
@@ -59,6 +92,9 @@ void Board::draw(Tetromino* piece) {
             }
             if (isPiece == true) {
                 std::cout << "@";
+            }
+            else if (grid[i][j] != 0) {
+                std::cout << "X";
             }
             else if (grid[i][j] == 0)
                 std::cout << ".";

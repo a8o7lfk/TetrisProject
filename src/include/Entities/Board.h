@@ -7,6 +7,9 @@ class Board {
         int** grid;
     public:
         bool isCollision(Tetromino* piece, int dx, int dy);
+        void lockPiece(Tetromino* piece);
+        void clearLines();
+        
         Board(int w, int h); //* konstuktor
         ~Board(); //*destruktor
         void draw(Tetromino* piece); //*wyswietlenie jest metoda
