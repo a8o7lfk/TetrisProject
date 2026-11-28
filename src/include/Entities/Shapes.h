@@ -18,3 +18,9 @@ class Lshape : public Tetromino {
         Lshape();
         void rotate() override;
 };
+
+class Jshape : public Tetromino {
+    public: 
+        Jshape();
+        void rotate() override;
+};

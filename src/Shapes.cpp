@@ -52,3 +52,25 @@ void Lshape::rotate() {
         }
     }
 }
+
+// Jshape
+Jshape::Jshape() {
+    for (int j = 0; j < 3; j++) {
+        matrix[j][1] = 1;
+    }
+    matrix[2][0] = 1;
+}
+
+void Jshape::rotate() {
+    int temp[4][4] = {0};
+    for (int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            temp[j][2 - i] = matrix[i][j];
+        }
+    }
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0 ; j < 4; j++) {
+            matrix[i][j] = temp[i][j];
+        }
+    }
+}

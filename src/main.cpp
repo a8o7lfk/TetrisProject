@@ -40,7 +40,7 @@ int main() {
         if (!(board.isCollision(currentPiece, 0, 1))) {
             currentPiece->move(0, 1);
         } else {
-            int r = std::rand() % 3;
+            int r = std::rand() % 4;
             board.lockPiece(currentPiece);
             board.clearLines();
             delete currentPiece;
@@ -53,6 +53,8 @@ int main() {
             else if (r == 2) {
                 currentPiece = new Lshape();
             }
+            else if (r == 3)
+                currentPiece = new Jshape();
             
         }
         button = ' ';
